@@ -1,5 +1,36 @@
-import React, { useReducer, useState } from "react"
-import { taskReducer, initialState } from "../reducers/taskReducer"
+import React, { useState } from "react"
+import styled from "styled-components";
+
+
+const Form = styled.form`
+display: flex;
+flex-direction:column;
+align-items: center;
+`;
+const Label = styled.label`
+font-family: 'Rock Salt', cursive;
+font-size: 2rem;
+color:#e0dbd1
+`;
+const Input = styled.input`
+font-family: 'Rock Salt', cursive;
+width:90%;
+height: 50px
+background-color: #15534a;
+color:#e0dbd1
+font-size:1.2rem;
+text-align:center;
+`;
+
+const Button = styled.button`
+width: 150px;
+height:30px;
+border-radius:5px
+background-color:#242c3c
+color:#e0dbd1;
+font-family: 'Rock Salt', cursive;
+margin-top:2%;
+`;
 
 const TaskForm = ({dispatch}) => {
     const [newTask, setNewTask] = useState("");
@@ -18,12 +49,12 @@ const TaskForm = ({dispatch}) => {
       };
     
 return(
-    <form>
-        <label htmlFor="task">Add Task</label>
-        <input 
+    <Form>
+        <Label htmlFor="task">To Do List</Label>
+        <Input 
         type="text" name="task" id="task" value={newTask} onChange={handleChange} />
-        <button onClick={addTask} >Add Task</button>
-    </form>
+        <Button onClick={addTask} >Add Task</Button>
+    </Form>
 )
 }
 
