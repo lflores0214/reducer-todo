@@ -1,4 +1,4 @@
-import TaskList from "../comonents/TaskList";
+
 
 export const taskReducer = (state, action) => {
   switch (action.type) {
@@ -11,13 +11,13 @@ export const taskReducer = (state, action) => {
       console.log(action.payload)
       return [...state, newTask];
       case "TOGGLE_COMPLETED":
-       let task = state.map(task=>{
-          if(task.id === action.payload){
-            return{...task, completed: !completed}
-          } else {
-            return task;
-          }
-        })
+       return state.map(task=>{
+         return task.id === action.payload ? {...task, completed: !task.completed} : task;
+        });
+        case "CLEAR_COMPLETED":
+          return state.filter(task => {
+            return task.completed === false;
+          });
     default:
       return state;
   }

@@ -1,14 +1,19 @@
 import React from "react";
 import Task from "./Task";
 
-const TaskList = (props) => {
-    console.log(props.tasks)
+const TaskList = ({state,dispatch}) => {
+    console.log(state)
+
+    const clearCompleted = () => {
+        dispatch({type: "CLEAR_COMPLETED"})
+    }
+
   return (
     <div>
-        {props.tasks.map(task =>(
-            <Task tasks={task} />
+        {state.map(task =>(
+            <Task tasks={task} dispatch={dispatch}/>
         ))}
-      
+      <button onClick={()=> clearCompleted()} >Clear Completed</button>
     </div>
   );
 };

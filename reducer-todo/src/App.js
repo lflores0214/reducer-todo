@@ -8,15 +8,11 @@ function App() {
   const [state, dispatch] = useReducer(taskReducer, initialState);
   console.log(state)
   
-  // const addTask = (e) => {
-  //   dispatch({ type: "ADD_TASK", payload: task });
-  //   e.preventDefault();
-  // };
 
   return (
     <div className="App">
       <TaskForm dispatch={dispatch}/>
-      <TaskList tasks={state} />
+      <TaskList state={state} dispatch={dispatch} />
     </div>
   );
 }
