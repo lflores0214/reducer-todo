@@ -1,8 +1,0 @@
-{
-    "version": 2,
-    "name": "reducer-todo",
-    "builds": [{ "src": "reducer-todo/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
-    "routes": [
-        { "src": "/(.*)", "dest": "reducer-todo/$1" }
-    ]
-}
