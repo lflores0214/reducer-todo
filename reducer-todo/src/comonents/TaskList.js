@@ -1,13 +1,13 @@
 import React from "react";
 import Task from "./Task";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const ListContainer = styled.div`
   height: 60vh;
   margin-top: 5%;
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: center;
   flex-wrap: wrap;
   text-align: center;
 `;
@@ -30,21 +30,21 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const TaskList = ({state,dispatch}) => {
-    console.log(state)
+const TaskList = ({ state, dispatch }) => {
+  console.log(state);
 
-    const clearCompleted = () => {
-        dispatch({type: "CLEAR_COMPLETED"})
-    }
+  const clearCompleted = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
+  };
 
   return (
     <Container>
-        <ListContainer>
-        {state.map(task =>(
-            <Task tasks={task} dispatch={dispatch}/>
+      <ListContainer>
+        {state.map(task => (
+          <Task tasks={task} dispatch={dispatch} />
         ))}
-        </ListContainer>
-      <Button onClick={()=> clearCompleted()} >Clear Completed</Button>
+      </ListContainer>
+      <Button onClick={() => clearCompleted()}>Clear Completed</Button>
     </Container>
   );
 };

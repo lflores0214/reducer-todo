@@ -6,24 +6,23 @@ import TaskForm from "./comonents/TaskForm";
 import { initialState, taskReducer } from "./reducers/taskReducer";
 //styling
 import "./App.css";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Container = styled.div`
-display:flex;
-flex-direction: column;
-align-items:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 function App() {
   const [state, dispatch] = useReducer(taskReducer, initialState);
-  
 
   return (
     <Container>
       <div>
-      <TaskForm dispatch={dispatch}/>
+        <TaskForm dispatch={dispatch} />
       </div>
       <div>
-      <TaskList state={state} dispatch={dispatch} />
+        <TaskList state={state} dispatch={dispatch} />
       </div>
     </Container>
   );
